@@ -31,10 +31,30 @@ namespace Assignment_6._2._2
 
         static int[] ArrayProduct(int[] array)
         {
-            #region Final Attempt (refactored and removed one array)
+            #region Final Final Attempt (was able to remove the if statement)
             // Product array after index i
             int[] productArray = new int[array.Length];
             int product = 1;
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                productArray[i] = product;
+                product *= array[i];
+            }
+
+            // While iterating through the array, calculate the "before" product and multiply it w/"after" into the result array
+            product = 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                productArray[i] *= product;
+                product *= array[i];
+            }
+            return productArray; 
+            #endregion
+
+            #region Final Attempt (refactored and removed one array)
+            // Product array after index i
+            productArray = new int[array.Length];
+            product = 1;
             for (int i = array.Length - 1; i >= 0; i--)
             {
                 if (i != array.Length - 1) product *= array[i + 1];
